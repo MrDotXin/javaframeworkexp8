@@ -1,10 +1,16 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <BasicLayout />
 </template>
+
+<script>
+  import BasicLayout from '@/layout/BasicLayout.vue' 
+  
+  export default {
+    components: {
+      BasicLayout
+    }
+  }
+</script>
 
 <style>
 #app {

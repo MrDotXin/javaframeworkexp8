@@ -1,0 +1,21 @@
+apps:
+  - scripts: ./src/main.js
+    name: 'app'
+    env:
+      COMMON_VARIABLE: true
+    env_production:
+      NODE_ENV: prodcution
+
+deploy:
+  production:
+    user: root
+    host: 47.98.177.153
+    port: 22
+    ref: origin/master
+    ssh_options: StrictHostKeyChecking=no
+    repo: https://github.com/MrDotXin/javaframeworkexp8.git
+    path: usr/project/frontend_deploy
+    pre-deploy: git fetch --all
+    post-deploy: npm install &amp;&amp; pm2 reload deploy.yaml --env production
+    env:
+      NODE_ENV: production
